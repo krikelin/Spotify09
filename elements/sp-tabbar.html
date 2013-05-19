@@ -1,9 +1,13 @@
 <element name="sp-tabbar">
   <template>
     <section pseudo="x-spotify-tabbar" id="tabbar">
+      <content>
+      </content>
       <template repeat="{{items}}" id="ilist">
         <sp-tab title="{{title}}" id="{{id}}" on-selected="selected" />
       </template>
+      
+      <span style="float: right" class="title">{{title}}</span>
     </section>
   </template>
 
@@ -21,21 +25,19 @@
         e.srcElement.selected = true;
         console.log(e);
       },
+      addTab: function (page) {
+        var tab = document.createElement('sp-tab');
+        tab.id = page.id;
+        tab.title = page.title;
+        this.$.tabbar.appendChild(tab);
+      },
       ready: function () {
         this.$.ilist.model = {
           items:[
-            {
-              title: 'Home',
-              id: 'home',
-              selected: false
-            },
-            {
-              title: 'Home',
-              id: 'home',
-              selected: false
-            },
+            
           ]
-        }
+        };
+       
       }
     });
   </script>

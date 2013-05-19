@@ -18,6 +18,7 @@
         elementSelected: function (e) {
           console.log(e);
         },
+        selectedItem: null,
         selectedindex: 0,
         selected: function (e) {
           
@@ -28,7 +29,7 @@
             items[i].selected = false;
           }
           e.srcElement.selected = true;
-
+          this.selectedItem = e.srcElement;
           // Create new event
           var evt = document.createEvent('CustomEvent');
           evt.initCustomEvent('itemselected', true, true);
@@ -50,7 +51,9 @@
               selected: false
             }]
           };
-
+          
+    
+        
         }
       
     });

@@ -15,8 +15,15 @@
     // Only do work when this == <element>.
    
     Polymer.register(this, {
+      selectedItem: null,
       itemselected: function (e) {
         console.log('Item selected', e);
+        this.selectedItem = e.srcElement.selectedItem;
+        console.log('a', this.selectedItem);
+        var evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent('menuselected', true, true);
+        this.dispatchEvent(evt);
+        console.log("A");
       },
       ready: function (e) {
       }

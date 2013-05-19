@@ -1,0 +1,39 @@
+<element name="sp-view" attributes="uri visible">
+  <template>
+    <style>
+    </style>
+    <section pseudo="x-spotify-view" data-visible="{{visible}}">
+      <sp-tabbar id="tabbar" title="{{title}}">
+      </sp-tabbar>
+      <section id="pages">
+      </section>
+    </section>
+  </template>
+
+  <script>
+    // When <element> is in document, might run in wrong context.
+    // Only do work when this == <element>.
+   
+    Polymer.register(this, {
+      title: 'Undefined view',
+      uri: 'spotify:undefined',
+      visible: false,
+      tabselected: function (e) {
+        var pages = this.querySelectorAll('sp-page');
+        for(var i = 0; i < pages.length; i++) {
+          pages[i].active = false;
+        }
+        var page = this.querySelector('sp-page[id="' + e.srcElement.id + '"]');
+        page.active = true;
+      },
+      /** Add Page */
+      addPage: function (page) {
+        this.$.pages.appendChild(page);
+        this.$.tabbar.addTab(page);
+      },
+      ready: function () {
+
+      }
+    });
+  </script>
+</element>

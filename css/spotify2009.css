@@ -69,6 +69,12 @@ background-image: -webkit-gradient(
 *::x-spotify-list-item[data-selected='true'] > *::x-spotify-list-item-title {
 	color: rgba(0, 12, 100, 1);
 }
+*::x-spotify-view {
+	display: none;
+}
+::x-spotify-view[data-visible='true'] {
+	display: block;
+}
 sp-menu {
 	width: 60px;
 	height: 100%;

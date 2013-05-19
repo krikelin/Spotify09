@@ -1,0 +1,20 @@
+<element name="sp-view-internal" attributes="uri title id" extends="sp-view">
+  <script>
+    // When <element> is in document, might run in wrong context.
+    // Only do work when this == <element>.
+   
+    Polymer.register(this, {
+      title: 'Undefined view',
+      uri: 'spotify:undefined',
+      init: function () {
+      	var page = document.createElement('sp-page');
+      	page.title = 'Overview';
+      	page.id = 'overview';
+      	this.addPage(page);
+      },
+      ready: function () {
+
+      }
+    });
+  </script>
+</element>

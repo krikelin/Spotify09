@@ -1,0 +1,16 @@
+<element name="sp-page" attributes="visible">
+  <template name="sp-page">
+    <section data-visible="{{visible}}">
+      <content></content>
+    </section>
+  </template>
+ 
+  <script>
+    // When <element> is in document, might run in wrong context.
+    // Only do work when this == <element>.
+   
+    Polymer.register(this, {
+      visible: false
+    });
+  </script>
+</element>

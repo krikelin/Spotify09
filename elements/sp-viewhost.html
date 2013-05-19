@@ -1,0 +1,60 @@
+<element name="sp-viewhost">
+  <template>
+    <style>
+    span {
+      float: left;
+    }
+    #icon {
+      width: 16px;
+      float: left;
+      height: 16px;
+    }
+    </style>
+    
+    <section id="viewstack">
+    </section>
+  </template>
+  <script>
+    // When <element> is in document, might run in wrong context.
+    // Only do work when this == <element>.
+   
+    Polymer.register(this, {
+      /**
+       * Navigate to a certain view
+       * @param  {string} uri URI to view
+       * @return {void}     [description]
+       */
+      navigate: function (uri) {
+
+        if(uri.indexOf('spotify:') != 0)
+          throw "Invalid URI";
+        console.log(uri);
+        var app = uri.split(':')[1];
+        var view = this.$.viewstack.querySelector('sp-view-' + app + '[uri="' + uri.split('#')[0] + '"]');
+        console.log('view', view);
+        console.log(view);
+        var views =  this.$.viewstack.querySelectorAll('*');
+        console.log('views', views);
+        if(!view) {
+          // TODO Create new view
+          var view_namespace = uri.split(':')[1];
+          var view = document.createElement('sp-view-' + view_namespace);
+          
+          view.setAttribute('uri', uri);
+          view.init();
+          console.log(view);
+          console.log(this.$.viewstack);
+          view.visible = true;
+          this.$.viewstack.appendChild(view);
+        } else {
+          for(var i = 0; i < views.length; i++) {
+            console.log(views[i], i); 
+            views[i].visible = false;
+          }
+          view.visible = true;
+        }
+        
+      }
+    });
+  </script>
+</element>
