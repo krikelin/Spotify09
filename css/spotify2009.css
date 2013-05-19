@@ -1,0 +1,106 @@
+body {
+	-webkit-touch-callout: none;
+-webkit-user-select: none;
+-khtml-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+	margin: 0px;
+	background: rgba(35, 35, 35, 1);
+	font-family: "Tahoma";
+	font-size: 11px;
+	text-shadow: 0px -1px 0px black;
+	color: #888888;
+	overflow: none;
+	overflow-y: hidden;
+}
+*::x-spotify-tabbar-tab {
+	border-right: 1px solid #888888;
+	width: 80px;
+	height: 28px;
+	text-align: center;
+	cursor: default;
+}
+::x-spotify-list-item {
+	height: 16px;
+	width: 100%;
+	position: relative;
+	text-shadow: none;
+	cursor: default;
+
+}
+::x-spotify-list-item-title {
+	text-shadow: none;
+	margin-right: 3px;
+	color: rgba(255, 255, 255, .6);
+	cursor: default;
+
+}
+::x-spotify-list-item .icon {
+	width: 16px;
+	height: 16px;
+	float: left;
+}
+::x-spotify-list-item[data-selected='true'] {
+	background: rgba(169, 217, 254, 1);
+}
+
+::x-spotify-list-item-subtitle {
+	color: rgba(255, 255, 255, 0.250);
+	text-shadow: none;
+}
+::x-spotify-tabbar-tab[data-active='true'] {
+	background-image: linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
+background-image: -o-linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.39, rgb(55,55,55)),
+	color-stop(1, rgb(71,71,71))
+);
+	border-radius: 2px 2px 0px 0px;
+	box-shadow:inset 0px 2px 1px black;
+}
+*::x-spotify-list-item[data-selected='true'] > *::x-spotify-list-item-title {
+	color: rgba(0, 12, 100, 1);
+}
+sp-menu {
+	width: 60px;
+	height: 100%;
+	top: 160px;
+}
+*::x-spotify-tabbar {
+	
+	height: 24px;
+	overflow: hidden;
+	background: rgba(80, 80, 80, 1);
+	color: rgba(255, 255, 255, 0.9);
+	font-weight: bold;
+	text-shadow: 0px 2px 1px rgba(0, 0, 0, .5);
+}
+*::x-spotify-menu {
+	background-color: rgba(50, 50, 50, 1);
+	width: 164px;
+	height: 100%;
+	position: absolute;
+}
+*::x-spotify-header {
+	background-image: linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
+background-image: -o-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
+background-image: -moz-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
+background-image: -webkit-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
+background-image: -ms-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0.04, rgb(209,209,209)),
+	color-stop(0.62, rgb(240,240,240))
+);
+}

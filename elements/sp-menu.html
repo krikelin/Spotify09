@@ -1,0 +1,25 @@
+<element name="sp-menu">
+  <template>
+    <section pseudo="x-spotify-menu">
+
+      <sp-tabbar>
+        <sp-tab title="Menu" active="active"></sp-tab>
+      </sp-tabbar>
+      <sp-listview on-itemselected="itemselected">
+     </sp-listview>
+    </section>
+  </template>
+
+  <script>
+    // When <element> is in document, might run in wrong context.
+    // Only do work when this == <element>.
+   
+    Polymer.register(this, {
+      itemselected: function (e) {
+        console.log('Item selected', e);
+      },
+      ready: function (e) {
+      }
+    });
+  </script>
+</element>

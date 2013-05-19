@@ -1,0 +1,59 @@
+<element name="sp-listview">
+  <template>
+    <section pseudo="x-spotify-listview" id="splist">
+      
+        <template repeat="{{items}}" id="itemlist">
+          <sp-listitem on-selected="selected" href="{{href}}" title="{{title}}" subtitle="{{subtitle}}" />
+        </template>
+      <content>
+      </content>
+    </section>
+  </template>
+
+  <script>
+    // When <element> is in document, might run in wrong context.
+    // Only do work when this == <element>.
+   
+    Polymer.register(this, {
+        elementSelected: function (e) {
+          console.log(e);
+        },
+        selectedindex: 0,
+        selected: function (e) {
+          
+          var items = this.$.splist.querySelectorAll('sp-listitem');
+          console.log(items.length);
+          for(var i = 0; i < items.length; i++) {
+            console.log(items[i]);
+            items[i].selected = false;
+          }
+          e.srcElement.selected = true;
+
+          // Create new event
+          var evt = document.createEvent('CustomEvent');
+          evt.initCustomEvent('itemselected', true, true);
+          this.dispatchEvent(evt);
+        },
+        ready: function() {
+          console.log("A");
+          this.$.itemlist.model = {
+            items: [{
+              href: 'spotify:internal:home',
+              title:'Home',
+              subtitle: '',
+              selected: false
+            },
+            {
+              href: 'spotify:internal:toplist',
+              title:'Top Lists',
+              subtitle: '',
+              selected: false
+            }]
+          };
+
+        }
+      
+    });
+    
+  </script>
+</element>

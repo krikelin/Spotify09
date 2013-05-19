@@ -1,0 +1,25 @@
+<element name="sp-tab" attributes="active title">
+  <template>
+    <section style="float: left" on-mousedown="mousedown" pseudo="x-spotify-tabbar-tab" data-active="{{selected}}">
+      <span>{{title}}</span>
+    
+    </section>
+  </template>
+
+  <script>
+    // When <element> is in document, might run in wrong context.
+    // Only do work when this == <element>.
+   
+    Polymer.register(this, {
+      mousedown: function (e) {
+        var evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent('selected', true, true);
+        this.dispatchEvent(evt);
+      },
+    	title: 'Undefined',
+      id: 'undefined',
+    	active: false,
+
+    });
+  </script>
+</element>

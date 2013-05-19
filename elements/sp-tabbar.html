@@ -1,0 +1,42 @@
+<element name="sp-tabbar">
+  <template>
+    <section pseudo="x-spotify-tabbar" id="tabbar">
+      <template repeat="{{items}}" id="ilist">
+        <sp-tab title="{{title}}" id="{{id}}" on-selected="selected" />
+      </template>
+    </section>
+  </template>
+
+  <script>
+    // When <element> is in document, might run in wrong context.
+    // Only do work when this == <element>.
+   
+    Polymer.register(this, {
+      selected: function (e) {
+         var items = this.$.tabbar.querySelectorAll('sp-tab');
+        for(var i = 0; i < items.length; i++) {
+          console.log(items[i]);
+          items[i].selected = false;
+        }
+        e.srcElement.selected = true;
+        console.log(e);
+      },
+      ready: function () {
+        this.$.ilist.model = {
+          items:[
+            {
+              title: 'Home',
+              id: 'home',
+              selected: false
+            },
+            {
+              title: 'Home',
+              id: 'home',
+              selected: false
+            },
+          ]
+        }
+      }
+    });
+  </script>
+</element>
