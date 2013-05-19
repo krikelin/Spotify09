@@ -27,6 +27,7 @@
         }
         console.log('srcPage', e.srcElement.selectedTab.getAttribute('id'));
         var page = this.$.pages.querySelector('sp-page[id="' + e.srcElement.selectedTab.getAttribute('id') + '"]');
+
         page.active = true;
         console.log('PAGE', page);
       },
