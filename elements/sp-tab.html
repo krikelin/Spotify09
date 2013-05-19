@@ -1,4 +1,4 @@
-<element name="sp-tab" attributes="active title">
+<element name="sp-tab" attributes="active title id">
   <template>
     <section style="float: left" on-mousedown="mousedown" pseudo="x-spotify-tabbar-tab" data-active="{{selected}}">
       <span>{{title}}</span>
@@ -14,7 +14,9 @@
       mousedown: function (e) {
         var evt = document.createEvent('CustomEvent');
         evt.initCustomEvent('selected', true, true);
+
         this.dispatchEvent(evt);
+        alert("A");
       },
     	title: 'Undefined',
       id: 'undefined',

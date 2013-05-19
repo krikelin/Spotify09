@@ -3,7 +3,7 @@
     <style>
     </style>
     <section pseudo="x-spotify-view" data-visible="{{visible}}">
-      <sp-tabbar id="tabbar" title="{{title}}">
+      <sp-tabbar on-tabselected="tabselected" id="tabbar" title="{{title}}">
       </sp-tabbar>
       <section id="pages">
       </section>
@@ -19,16 +19,22 @@
       uri: 'spotify:undefined',
       visible: false,
       tabselected: function (e) {
+        console.log(e);
         var pages = this.querySelectorAll('sp-page');
         for(var i = 0; i < pages.length; i++) {
           pages[i].active = false;
         }
-        var page = this.querySelector('sp-page[id="' + e.srcElement.id + '"]');
+        console.log('srcPage', e.srcElement.selectedTab.getAttribute('id'));
+        var page = this.$.pages.querySelector('sp-page[id="' + e.srcElement.selectedTab.getAttribute('id') + '"]');
         page.active = true;
+        console.log('PAGE', page);
       },
       /** Add Page */
       addPage: function (page) {
+
         this.$.pages.appendChild(page);
+        console.log('page', page);
+        console.log('Adding page?');
         this.$.tabbar.addTab(page);
       },
       ready: function () {

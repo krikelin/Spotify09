@@ -72,6 +72,12 @@ background-image: -webkit-gradient(
 *::x-spotify-view {
 	display: none;
 }
+*::x-spotify-view {
+	position:absolute;
+	left: 164px;
+	width: calc(100% - 164px);
+	height: calc(100% - 600px);
+}
 ::x-spotify-view[data-visible='true'] {
 	display: block;
 }

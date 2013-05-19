@@ -7,10 +7,14 @@
       title: 'Undefined view',
       uri: 'spotify:undefined',
       init: function () {
+
       	var page = document.createElement('sp-page');
       	page.title = 'Overview';
       	page.id = 'overview';
+      	page.innerHTML = "Hello world";
+      	console.log(page);
       	this.addPage(page);
+      	console.log('Page added?');
       },
       ready: function () {
 

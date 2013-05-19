@@ -1,6 +1,6 @@
 <element name="sp-tabbar">
   <template>
-    <section pseudo="x-spotify-tabbar" id="tabbar">
+    <section on-mousedown="mousedown" pseudo="x-spotify-tabbar" id="tabbar">
       <content>
       </content>
       <template repeat="{{items}}" id="ilist">
@@ -16,6 +16,10 @@
     // Only do work when this == <element>.
    
     Polymer.register(this, {
+      mousedown: function (e) {
+        
+      },
+      selectedTab: null,
       selected: function (e) {
          var items = this.$.tabbar.querySelectorAll('sp-tab');
         for(var i = 0; i < items.length; i++) {
@@ -23,13 +27,21 @@
           items[i].selected = false;
         }
         e.srcElement.selected = true;
+        this.selectedTab = e.srcElement;
         console.log(e);
+        var evt = document.createEvent('CustomEvent');
+        evt.initCustomEvent('tabselected', true, true);
+        this.dispatchEvent(evt);
       },
       addTab: function (page) {
         var tab = document.createElement('sp-tab');
+        console.log(tab);
         tab.id = page.id;
         tab.title = page.title;
+        tab.setAttribute('on-selected', 'selected');
+        console.log('tab', tab);
         this.$.tabbar.appendChild(tab);
+        console.log(this.$.tabbar);
       },
       ready: function () {
         this.$.ilist.model = {

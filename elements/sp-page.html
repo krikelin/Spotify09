@@ -1,6 +1,6 @@
-<element name="sp-page" attributes="visible">
+<element name="sp-page" attributes="active id">
   <template name="sp-page">
-    <section data-visible="{{visible}}">
+    <section data-visible="{{active}}">
       <content></content>
     </section>
   </template>
@@ -10,7 +10,7 @@
     // Only do work when this == <element>.
    
     Polymer.register(this, {
-      visible: false
+      active: false
     });
   </script>
 </element>

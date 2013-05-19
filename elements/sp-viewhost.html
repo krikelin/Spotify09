@@ -41,6 +41,7 @@
           var view = document.createElement('sp-view-' + view_namespace);
           
           view.setAttribute('uri', uri);
+          console.log(view.init);
           view.init();
           console.log(view);
           console.log(this.$.viewstack);
