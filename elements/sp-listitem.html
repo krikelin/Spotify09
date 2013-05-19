@@ -10,8 +10,8 @@
       height: 16px;
     }
     </style>
-    <section on-mousedown="mousedown" pseudo="x-spotify-list-item" data-selected="{{selected}}">
-      <div id="icon" style="background-image: url('{{icon}}')"></div><span pseudo="x-spotify-list-item-title">{{title}}</span>  <span pseudo="x-spotify-list-item-subtitle">{{subtitle}}</span>
+    <section on-mouseup="mousedown" pseudo="x-spotify-list-item" data-selected="{{selected}}">
+      <div pseudo="x-spotify-icon"  data-selected="{{selected}}" id="icon" class="icon {{icon}}"></div><span pseudo="x-spotify-list-item-title" data-selected="{{selected}}">{{title}}</span>  <span pseudo="x-spotify-list-item-subtitle">{{subtitle}}</span>
     </section>
   </template>
 
@@ -28,6 +28,7 @@
       },
 
       title: 'Loading...',
+      icon: 'icon-home',
       subtitle: '',
       href: 'spotify:internal:undefined',
       selected: false

@@ -8,28 +8,22 @@
       uri: 'spotify:undefined',
       init: function (uri) {
       	console.log(uri);
-      	var page = document.createElement('sp-page');
-      	page.title = 'Overview';
-      	page.id = 'overview';
-      	page.active = false;
-      	var span = document.createElement('span');
-      
-      	span.appendChild(document.createTextNode('a'));
-      	page.appendChild(span);
-      	console.log(page);
-      	this.addPage(page);
-      	console.log('Page added?');
-
-      	var page2 = document.createElement('sp-page');
-      	page2.title = 'Overview2';
-      	page2.id = 'overview2';
-      	var span2 = document.createElement('span');
-      
-      	span2.appendChild(document.createTextNode('a2'));
-      	page2.appendChild(span2);
-      	console.log(page2);
-      	this.addPage(page2);
-      	console.log('Page added?');
+      	var app = uri.split(':')[2];
+      	
+      	if(app === 'whatsnew') {
+	      	var page = document.createElement('sp-page-whatsnew');
+	      	page.title = "What's New";
+	      	page.id = 'overview';
+	      	page.active = true;
+	      	this.addPage(page);
+	    }
+	    if(app === 'toplist') {
+	    	var page = document.createElement('sp-page-toplist');
+	      	page.title = "Top List";
+	      	page.id = 'overview';
+	      	page.active = true;
+	      	this.addPage(page);
+	    }
       },
       ready: function () {
 

@@ -1,0 +1,26 @@
+<element name="sp-page-whatsnew" attributes="uri title id" extends="sp-page">
+  <template>
+    <style>
+    h1, h2, h3 {
+    font-family: 'Helvetica';
+
+    }
+    h1 {
+      font-size: 12px;
+      color: #a1feb3;
+      }
+  </style>
+    <h1>What's new</h1>
+  </template>
+  <script>
+    // When <element> is in document, might run in wrong context.
+    // Only do work when this == <element>.
+   
+    Polymer.register(this, {
+      
+      ready: function () {
+
+      }
+    });
+  </script>
+</element>

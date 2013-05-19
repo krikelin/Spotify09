@@ -6,7 +6,7 @@ body {
 -ms-user-select: none;
 user-select: none;
 	margin: 0px;
-	background: rgba(35, 35, 35, 1);
+	background: #373737;
 	font-family: "Tahoma";
 	font-size: 11px;
 	text-shadow: 0px -1px 0px black;
@@ -15,14 +15,24 @@ user-select: none;
 	overflow-y: hidden;
 }
 *::x-spotify-tabbar-tab {
-	border-right: 1px solid #888888;
+	border-right: 1px solid rgba(0, 0, 0, 0.4);
 	width: 80px;
 	height: 28px;
 	text-align: center;
 	cursor: default;
 }
+::x-spotify-listview {
+
+}
+::x-spotify-list-item:active {
+	background: #5d5d5d;
+}
+* {
+	box-sizing: border-box;
+}
 ::x-spotify-list-item {
-	height: 16px;
+	padding-top: 2px;
+	height: 15px;
 	width: 100%;
 	position: relative;
 	text-shadow: none;
@@ -43,6 +53,7 @@ user-select: none;
 }
 ::x-spotify-list-item[data-selected='true'] {
 	background: rgba(169, 217, 254, 1);
+
 }
 
 ::x-spotify-list-item-subtitle {
@@ -50,11 +61,11 @@ user-select: none;
 	text-shadow: none;
 }
 ::x-spotify-tabbar-tab[data-active='true'] {
-	background-image: linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
-background-image: -o-linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
-background-image: -moz-linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
-background-image: -webkit-linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
-background-image: -ms-linear-gradient(bottom, rgb(55,55,55) 39%, rgb(71,71,71) 100%);
+	background-image: linear-gradient(bottom, #373737 39%, rgb(71,71,71) 100%);
+background-image: -o-linear-gradient(bottom, #373737 39%, rgb(71,71,71) 100%);
+background-image: -moz-linear-gradient(bottom, #373737 39%, rgb(71,71,71) 100%);
+background-image: -webkit-linear-gradient(bottom, #373737 39%, rgb(71,71,71) 100%);
+background-image: -ms-linear-gradient(bottom, #373737 39%, rgb(71,71,71) 100%);
 
 background-image: -webkit-gradient(
 	linear,
@@ -65,18 +76,19 @@ background-image: -webkit-gradient(
 );
 	border-radius: 2px 2px 0px 0px;
 	box-shadow:inset 0px 2px 1px black;
+	height: 29px;
 }
-*::x-spotify-list-item[data-selected='true'] > *::x-spotify-list-item-title {
-	color: rgba(0, 12, 100, 1);
-}
+
 *::x-spotify-view {
 	display: none;
 }
+
 *::x-spotify-view {
 	position:absolute;
-	left: 164px;
+	left: 165px;
+	top: 56px;
 	width: calc(100% - 164px);
-	height: calc(100% - 600px);
+	height: calc(100% - 600px - 600px);
 }
 ::x-spotify-view[data-visible='true'] {
 	display: block;
@@ -88,11 +100,6 @@ background-image: -webkit-gradient(
 	display: block;
 }
 
-sp-menu {
-	width: 60px;
-	height: 100%;
-	top: 160px;
-}
 *::x-spotify-tabbar {
 	border-bottom: 1px solid rgba(0,0, 0, .5);
 	height: 24px;
@@ -103,25 +110,43 @@ sp-menu {
 	text-shadow: 0px 2px 1px rgba(0, 0, 0, .5);
 }
 *::x-spotify-menu {
-	background-color: rgba(50, 50, 50, 1);
+	background-color: #474747;
 	width: 164px;
 	height: 100%;
+	top: 56px;
+	position: absolute;
+	height: calc(100% - 56px);
+	border-right: 1px solid rgba(0, 0, 0, .8);
+	overflow: hidden;
+}
+::x-spotify-header {
+	top: 0px;
+	position: absolute;
+	height: 56px;
+	width: 100%;
+background: url('../img/header.png');
+}
+::x-spotify-footer {
+	background: url('../img/footer.png');
+	height: 41px;
+	bottom: 0px;
+	width: 100%;
 	position: absolute;
 }
-*::x-spotify-header {
-/*	background-image: linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
-background-image: -o-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
-background-image: -moz-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
-background-image: -webkit-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
-background-image: -ms-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
 
-background-image: -webkit-gradient(
-	linear,
-	left bottom,
-	left top,
-	color-stop(0.04, rgb(209,209,209)),
-	color-stop(0.62, rgb(240,240,240))
-);*/
-height: 56px;
-background: url('../img/header.png');
+::x-spotify-icon.icon {
+	background: url('../img/icons.png');
+	background-left: 0px;
+}
+::x-spotify-icon[data-selected='true'] {
+	background-left: 12px;
+}
+::x-spotify-icon.icon-home {
+	background-top: 0px;
+}
+::x-spotify-icon.icon-queue {
+	background-top: 12px;
+}
+::x-spotify-list-item-title[data-selected='true'] {
+	color: #003344;
 }
