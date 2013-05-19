@@ -20,8 +20,9 @@
       visible: false,
       tabselected: function (e) {
         console.log(e);
-        var pages = this.querySelectorAll('sp-page');
+        var pages = this.$.pages.querySelectorAll('*');
         for(var i = 0; i < pages.length; i++) {
+      
           pages[i].active = false;
         }
         console.log('srcPage', e.srcElement.selectedTab.getAttribute('id'));

@@ -81,13 +81,20 @@ background-image: -webkit-gradient(
 ::x-spotify-view[data-visible='true'] {
 	display: block;
 }
+::x-spotify-page {
+	display: none;
+}
+::x-spotify-page[data-active='true'] {
+	display: block;
+}
+
 sp-menu {
 	width: 60px;
 	height: 100%;
 	top: 160px;
 }
 *::x-spotify-tabbar {
-	
+	border-bottom: 1px solid rgba(0,0, 0, .5);
 	height: 24px;
 	overflow: hidden;
 	background: rgba(80, 80, 80, 1);
@@ -102,7 +109,7 @@ sp-menu {
 	position: absolute;
 }
 *::x-spotify-header {
-	background-image: linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
+/*	background-image: linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
 background-image: -o-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
 background-image: -moz-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
 background-image: -webkit-linear-gradient(bottom, rgb(209,209,209) 4%, rgb(240,240,240) 62%);
@@ -114,5 +121,7 @@ background-image: -webkit-gradient(
 	left top,
 	color-stop(0.04, rgb(209,209,209)),
 	color-stop(0.62, rgb(240,240,240))
-);
+);*/
+height: 56px;
+background: url('../img/header.png');
 }
